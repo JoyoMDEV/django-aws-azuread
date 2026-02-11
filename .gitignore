@@ -36,3 +36,6 @@ Thumbs.db
 
 # Docker
 postgres-data/
+
+# Ruff
+.ruff_cache
