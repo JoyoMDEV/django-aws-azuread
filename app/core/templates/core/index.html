@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>django-aws-azuread</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; background: #f8f9fa; color: #212529; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .card { background: white; border-radius: 12px; padding: 3rem; max-width: 480px; width: 90%; box-shadow: 0 1px 3px rgba(0,0,0,0.1); text-align: center; }
+        h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .subtitle { color: #6c757d; margin-bottom: 2rem; }
+        .status { padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+        .status.auth { background: #d1e7dd; color: #0f5132; }
+        .status.anon { background: #f8d7da; color: #842029; }
+        .btn { display: inline-block; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.85; }
+        .btn-login { background: #0d6efd; color: white; }
+        .btn-logout { background: #6c757d; color: white; }
+        .info { margin-top: 2rem; font-size: 0.85rem; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>django-aws-azuread</h1>
+        <p class="subtitle">Multi-Cloud Authentication Demo</p>
+
+        {% if user.is_authenticated %}
+            <div class="status auth">
+                Authenticated as <strong>{{ user.email|default:user.username }}</strong>
+            </div>
+            <a href="{% url 'oidc_logout' %}" class="btn btn-logout">Sign out</a>
+        {% else %}
+            <div class="status anon">
+                Not authenticated
+            </div>
+            <a href="{% url 'oidc_authentication_init' %}" class="btn btn-login">Sign in with Azure AD</a>
+        {% endif %}
+
+        <p class="info">
+            Django on AWS · Azure AD via OIDC · Terraform
+        </p>
+    </div>
+</body>
+</html>
