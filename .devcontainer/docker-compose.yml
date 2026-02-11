@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspaces/django-aws-azuread:cached
+    command: sleep infinity
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://django:django@db:5432/django_app
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: django
+      POSTGRES_DB: django_app
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres-data:
