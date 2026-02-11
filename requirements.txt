@@ -1,0 +1,23 @@
+# Django
+Django>=5.1,<5.2
+django-extensions>=3.2
+
+# Azure AD / OIDC Auth
+mozilla-django-oidc>=4.0
+
+# Database
+psycopg[binary]>=3.2
+dj-database-url>=2.3
+
+# Environment / Config
+django-environ>=0.11
+python-dotenv>=1.0
+
+# Production
+gunicorn>=23.0
+whitenoise>=6.8
+
+# Dev / Quality
+ruff>=0.8
+django-debug-toolbar>=4.4
+pre-commit>=4.0
