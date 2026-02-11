@@ -4,7 +4,7 @@ Django web application deployed on AWS (ECS Fargate) with Azure AD authenticatio
 
 ## Prerequisites
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Docker](https://www.docker.com/)
 - [VS Code](https://code.visualstudio.com/) with the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
 
 ## Getting Started
